@@ -23,25 +23,14 @@ def checkout(skus):
     for deal in deals:
         while deal.can_apply_deal(basket):
             total, basket = deal.apply(basket)
-    for item, count in basket.items:
-        total += count * price_table[item]
-
-
-    total = 0
+    
     try:
-        for (sku,count) in basket_count.items():
-            item = price_table[sku]
-            if item.get("offer"):
-                # Quotient is the number of times offer is applied; remainder is number of individually priced products
-                (n,y) = item.get("offer")
-                quot,rem = divmod(count,n)
-                total = total + quot*y + rem*item["price"]
-            else:
-                total = total + count*item["price"]
-
+        for item, count in basket.items:
+            total += count * price_table[item]
     except KeyError:
         return -1
     
     return total
+
 
 
