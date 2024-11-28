@@ -24,6 +24,14 @@ def checkout(skus):
     # Count items in basket - to be optimised for larger price tables (i.e. more items)
     total_items = {s:skus.count(s) for s in skus}
 
-    
+    total = 0
+    try:
+        for item in total_items:
+            pass
+
+    except KeyError:
+        return -1
 
 
+
+checkout("AAABBBBBCCCCD")
