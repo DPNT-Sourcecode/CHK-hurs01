@@ -35,9 +35,10 @@ deals = []
 def get_deal(offer):
     if match := re.fullmatch(DealNForY.regex, offer):
         return DealNForY(match['n'],match['item'],match['price'])
-    else if match:= re.fullmatch(DealBuyXGetY.regex, offer):
+    elif match:= re.fullmatch(DealBuyXGetY.regex, offer):
+        return DealBuyXGetY(match['n'], match['itemx'], match['itemy'])
+
     
-get_deal("3A for 130")
 # Represents a 'buy n of item x for the price of y' deal
 class DealNForY:
 
@@ -64,6 +65,9 @@ class DealNForY:
 
 # Represents a 'buy n of item x to get item y free' deal
 class DealBuyXGetY:
+    
+    regex = r'(?P<n>\d+)(?P<itemx>\w) get one (?P<itemy>\w) free'
+
     def __init__(self, n, itemx, itemy):
         self.n = n
         self.itemx = itemx
@@ -116,5 +120,6 @@ def checkout(skus):
         return -1
     
     return total
+
 
 
