@@ -1,6 +1,6 @@
 import re
-from .Deal import *
-from .price_table_and_offers import price_table, deals_raw
+from Deal import *
+from price_table_and_offers import price_table, deals_raw
 
 # Generate the list of deals as given in the offers
 deals = [get_deal(d) for d in deals_raw]
@@ -31,3 +31,4 @@ def checkout(skus):
 
 
 checkout("STXYZ")
+

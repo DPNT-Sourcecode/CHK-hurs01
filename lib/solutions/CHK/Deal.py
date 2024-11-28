@@ -1,5 +1,5 @@
 import re
-from .price_table_and_offers import price_table
+from price_table_and_offers import price_table
 
 
 # Represents a 'buy n of item x for the price of y' deal
@@ -99,4 +99,5 @@ def get_deal(offer):
         return DealBuyXGetY(match["n"], match["itemx"], match["itemy"])
     elif match := re.fullmatch(DealGroupDiscount.regex, offer):
         return DealGroupDiscount(match["n"], match["items"].split(","), match["price"])
+
 
