@@ -1,15 +1,8 @@
 import re
 from Deal import *
 from price_table_and_offers import price_table, deals_raw
-
-# Generate a Deal object from the offer wording
-def get_deal(offer):
-    if match := re.fullmatch(DealNForY.regex, offer):
-        return DealNForY(match['n'],match['item'],match['price'])
-    elif match:= re.fullmatch(DealBuyXGetY.regex, offer):
-        return DealBuyXGetY(match['n'], match['itemx'], match['itemy'])
     
-
+# Generate the list of deals as given in the offers
 deals = [get_deal(d) for d in deals_raw]
 
 # noinspection PyUnusedLocal
