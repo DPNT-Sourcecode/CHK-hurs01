@@ -24,7 +24,7 @@ price_table = {
     "W": 20,
     "X": 90,
     "Y": 10,
-    "Z": 50
+    "Z": 50,
 }
 
 deals_raw = [
@@ -42,5 +42,5 @@ deals_raw = [
     "3R get one Q free",
     "3U get one U free",
     "2V for 90",
-    "3V for 130"
+    "3V for 130",
 ]
