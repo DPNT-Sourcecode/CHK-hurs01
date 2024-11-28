@@ -4,6 +4,8 @@ from price_table_and_offers import price_table, deals_raw
     
 # Generate the list of deals as given in the offers
 deals = [get_deal(d) for d in deals_raw]
+# Sort deals in order of saving to decide order to apply them
+deals = sorted(deals, key=lambda d: d.calculate_saving(), reverse=True)
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -25,6 +27,3 @@ def checkout(skus):
         return -1
     
     return total
-
-
-checkout("ABCDEFG")
