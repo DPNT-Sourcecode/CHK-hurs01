@@ -1,5 +1,5 @@
 import re
-from price_table_and_offers import price_table
+from .price_table_and_offers import price_table
 
 # Represents a 'buy n of item x for the price of y' deal
 class DealNForY:
@@ -63,4 +63,5 @@ def get_deal(offer):
         return DealNForY(match['n'],match['item'],match['price'])
     elif match:= re.fullmatch(DealBuyXGetY.regex, offer):
         return DealBuyXGetY(match['n'], match['itemx'], match['itemy'])
+
 
