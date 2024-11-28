@@ -33,8 +33,9 @@ deals = []
 
 # Generate a Deal object from the offer wording
 def get_deal(offer):
-    if re.fullmatch(DealNForY.regex, offer):
-        return DealNForY()
+    if match := re.fullmatch(DealNForY.regex, offer):
+        return DealNForY(match['n'],match['item'],match['price'])
+    else if match:= re.fullmatch(DealBuyXGetY.regex, offer):
     
 get_deal("3A for 130")
 # Represents a 'buy n of item x for the price of y' deal
@@ -115,4 +116,5 @@ def checkout(skus):
         return -1
     
     return total
+
 
