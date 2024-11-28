@@ -1,4 +1,4 @@
-
+import re
 
 price_table = {
     "A": 50,
@@ -29,8 +29,19 @@ price_table = {
     "Z": 50
 }
 
+deals = []
+
+# Generate a Deal object from the offer wording
+def get_deal(offer):
+    if re.fullmatch(DealNForY.regex, offer):
+        return DealNForY()
+    
+get_deal("3A for 130")
 # Represents a 'buy n of item x for the price of y' deal
 class DealNForY:
+
+    regex = r'(?P<n>\d+)(?P<item>\w) for (?P<price>\d+)'
+
     def __init__(self, n, item, price):
         self.n = n
         self.item = item
@@ -104,3 +115,4 @@ def checkout(skus):
         return -1
     
     return total
+
