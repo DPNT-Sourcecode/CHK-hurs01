@@ -89,6 +89,10 @@ class DealGroupDiscount:
                     break
 
         return self.price
+    
+    # Note that this will throw errors if items involved in deal are also involved in other deals
+    def calculate_saving(self):
+        return 0
 
 
 # Generate a Deal object from the offer wording
@@ -99,5 +103,6 @@ def get_deal(offer):
         return DealBuyXGetY(match["n"], match["itemx"], match["itemy"])
     elif match := re.fullmatch(DealGroupDiscount.regex, offer):
         return DealGroupDiscount(match["n"], match["items"].split(","), match["price"])
+
 
 
