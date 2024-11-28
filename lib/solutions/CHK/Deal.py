@@ -7,9 +7,9 @@ class DealNForY:
     regex = r'(?P<n>\d+)(?P<item>\w) for (?P<price>\d+)'
 
     def __init__(self, n, item, price):
-        self.n = n
+        self.n = int(n)
         self.item = item
-        self.price = price
+        self.price = int(price)
     
     def __repr__(self):
         return f"{self.n}{self.item} for {self.price}"
@@ -34,7 +34,7 @@ class DealBuyXGetY:
     regex = r'(?P<n>\d+)(?P<itemx>\w) get one (?P<itemy>\w) free'
 
     def __init__(self, n, itemx, itemy):
-        self.n = n
+        self.n = int(n)
         self.itemx = itemx
         self.itemy = itemy
     
