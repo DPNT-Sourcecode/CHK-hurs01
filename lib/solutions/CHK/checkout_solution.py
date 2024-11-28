@@ -15,7 +15,7 @@ class DealNForY:
         self.item = item
         self.price = price
     
-    def __str__(self):
+    def __repr__(self):
         return f"{self.n}{self.item} for {self.price}"
     
     def can_apply_deal(self, basket):
@@ -36,7 +36,7 @@ class DealBuyXGetY:
         self.itemx = itemx
         self.itemy = itemy
     
-    def __str__(self):
+    def __repr__(self):
         return f"{self.n}{self.itemx} get one {self.itemy} free"
     
     def can_apply_deal(self, basket):
@@ -69,10 +69,10 @@ def checkout(skus):
     # Iteratively apply deals until no more apply
     for deal in deals:
         while deal.can_apply_deal(basket):
-            total += deal.apply(basket)
+            total += deal.apply_deal(basket)
 
     try:
-        for item, count in basket.items:
+        for item, count in basket.items():
             total += count * price_table[item]
     except KeyError:
         return -1
@@ -80,6 +80,7 @@ def checkout(skus):
     return total
 
 checkout("AAAAAAAAAABBBBBBBCCCDDDEE")
+
 
 
 
