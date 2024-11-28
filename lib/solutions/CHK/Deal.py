@@ -59,4 +59,7 @@ def get_deal(offer):
         return DealBuyXGetY(match['n'], match['itemx'], match['itemy'])
 
 
-    
+# Comparison operation to sort deals
+def compare_deals(deal1, deal2):
+    type(deal1) == DealNForY and type(deal1) == type(deal2)
+    pass
