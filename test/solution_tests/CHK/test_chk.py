@@ -10,6 +10,7 @@ class TestChk():
         assert checkout("AAAAAAA") == 300
         assert checkout("BB") == 45
         assert checkout("EEB") == 80
+        assert checkout("FFF") == 20
     def test_chk_offers_multi(self):
         assert checkout("EEBB") == 110
     def test_chk_invalid(self):

@@ -6,6 +6,7 @@ price_table = {
     "C":20,
     "D":15,
     "E":40,
+    "F":10
 }
 
 # Represents a 'buy n of item x for the price of y' deal
@@ -40,9 +41,7 @@ class DealBuyXGetY:
         return f"{self.n}{self.itemx} get one {self.itemy} free"
     
     def can_apply_deal(self, basket):
-        if self.itemx == self.itemy and basket.get(self.itemx,0)>=self.n+1
-            
-        else if basket.get(self.itemx,0)>=self.n and basket.get(self.itemy,0)>0:
+        if (self.itemx != self.itemy and basket.get(self.itemx,0)>=self.n and basket.get(self.itemy,0)>0):
             return True
         else:
             return False
@@ -84,5 +83,6 @@ def checkout(skus):
         return -1
     
     return total
+
 
 
