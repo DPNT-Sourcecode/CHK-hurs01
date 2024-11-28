@@ -50,12 +50,15 @@ class DealBuyXGetY:
         basket[self.itemy]-=1
         return price_table[self.itemx]*self.n
 
+
+
 # List of deals that can be applied. Deals should be listed in order in which they should be applied.
 deals = [
     DealBuyXGetY(2, "E", "B"),
     DealNForY(2, "B", 45),
     DealNForY(5, "A", 200),
-    DealNForY(3, "A", 130)
+    DealNForY(3, "A", 130),
+    DealBuyXGetY(2,"F","F")
 ]
 
 
@@ -79,3 +82,4 @@ def checkout(skus):
         return -1
     
     return total
+
