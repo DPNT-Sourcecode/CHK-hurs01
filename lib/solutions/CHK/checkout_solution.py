@@ -29,7 +29,23 @@ price_table = {
     "Z": 50
 }
 
-deals = []
+deals_raw = [
+    "3A for 130",
+    "5A for 200",
+    "2B for 45",
+    "2E get one B free",
+    "2F get one F free",
+    "5H for 45",
+    "10H for 80",
+    "2K for 150",
+    "3N get one M free",
+    "5P for 200",
+    "3Q for 80",
+    "3R get one Q free",
+    "3U get one U free",
+    "2V for 90",
+    "3V for 130"
+]
 
 # Generate a Deal object from the offer wording
 def get_deal(offer):
@@ -37,6 +53,8 @@ def get_deal(offer):
         return DealNForY(match['n'],match['item'],match['price'])
     elif match:= re.fullmatch(DealBuyXGetY.regex, offer):
         return DealBuyXGetY(match['n'], match['itemx'], match['itemy'])
+    
+deals = [get_deal(d) for d in deals_raw]
 
     
 # Represents a 'buy n of item x for the price of y' deal
@@ -120,6 +138,7 @@ def checkout(skus):
         return -1
     
     return total
+
 
 
 
