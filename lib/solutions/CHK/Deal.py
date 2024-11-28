@@ -73,15 +73,18 @@ class DealGroupDiscount:
 
     def __repr__(self):
         return f"buy any {self.n} of {self.items} for {self.price}"
-    
+
     def can_apply_deal(self, basket):
-        if sum([basket[i] for i in self.items])>=self.n
-            
+        if sum([basket[i] for i in self.items]) >= self.n:
             return True
         else:
             return False
 
-
+    # Deal always tries to use the most expensive items
+    def apply_deal(self, basket):
+        order = sorted(self.items, key=lambda i: price_table[i], reverse=True)
+        basket[self.itemy] -= 1
+        return price_table[self.itemx] * self.n
 
 
 # Generate a Deal object from the offer wording
@@ -92,5 +95,6 @@ def get_deal(offer):
         return DealBuyXGetY(match["n"], match["itemx"], match["itemy"])
     elif match := re.fullmatch(DealGroupDiscount.regex, offer):
         return DealGroupDiscount(match["n"], match["items"].split(","), match["price"])
+
 
 
