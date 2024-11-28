@@ -1,28 +1,24 @@
 
 
+price_table = {
+    "A":50,
+    "B":30,
+    "C":20,
+    "D":15,
+    "E":40,
+}
+
+Deal1 = ""
+Deal2 = ""
+deals = [Deal1, Deal2]
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    # "offer": (n,y) means buy n of item and it costs y pounds
-    price_table = {
-        "A": {
-            "price": 50,
-            "offer": (3,130)
-        },
-        "B": {
-            "price": 30,
-            "offer": (2,45)
-        },
-        "C": {
-            "price":20
-        },
-        "D": {
-            "price":15
-        }
-    }
-
     # Count items in basket - to be optimised for larger price tables (i.e. more items) using Counter
-    basket_count = {s:skus.count(s) for s in skus}
+    basket = {s:skus.count(s) for s in skus}
+
+    # Iteratively apply deals until basket is empty
 
     total = 0
     try:
@@ -40,3 +36,4 @@ def checkout(skus):
         return -1
     
     return total
+
