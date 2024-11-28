@@ -15,6 +15,9 @@ class DealNForY:
         self.item = item
         self.price = price
     
+    def __str__(self):
+        return f"{self.n}{self.item} for {self.price}"
+    
     def can_apply_deal(self, basket):
         if basket[self.item]>=self.n:
             return True
@@ -32,6 +35,9 @@ class DealBuyXGetY:
         self.n = n
         self.itemx = itemx
         self.itemy = itemy
+    
+    def __str__(self):
+        return f"{self.n}{self.itemx} get one {self.itemy} free"
     
     def can_apply_deal(self, basket):
         if basket[self.itemx]>=self.n and basket[self.itemy]>0:
@@ -74,5 +80,6 @@ def checkout(skus):
     return total
 
 checkout("AAAAAAAAAABBBBBBBCCCDDDEE")
+
 
 
