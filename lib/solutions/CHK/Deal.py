@@ -63,12 +63,3 @@ def get_deal(offer):
         return DealNForY(match['n'],match['item'],match['price'])
     elif match:= re.fullmatch(DealBuyXGetY.regex, offer):
         return DealBuyXGetY(match['n'], match['itemx'], match['itemy'])
-
-
-# Comparison operation to sort deals
-def compare_deals(deal1, deal2):
-    if type(deal1) == DealNForY and type(deal1) == type(deal2):
-        return 0
-    if type(deal1) == DealNForY and type(deal2) == DealBuyXGetY:
-        costofitem1 = deal1.price/deal1.n
-        cost
