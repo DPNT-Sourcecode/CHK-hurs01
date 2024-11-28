@@ -21,7 +21,7 @@ def checkout(skus):
         }
     }
 
-    # Count items in basket - to be optimised for larger price tables (i.e. more items)
+    # Count items in basket - to be optimised for larger price tables (i.e. more items) using Counter
     basket_count = {s:skus.count(s) for s in skus}
 
     total = 0
@@ -40,6 +40,3 @@ def checkout(skus):
         return -1
     
     return total
-
-
-checkout("AAABBBBBCCCCD")
