@@ -54,7 +54,7 @@ class DealBuyXGetY:
         return price_table[self.itemx]*self.n
     
     def calculate_saving(self):
-        return price_table["itemy"]
+        return price_table[self.itemy]
 
 
 # Generate a Deal object from the offer wording
@@ -63,3 +63,4 @@ def get_deal(offer):
         return DealNForY(match['n'],match['item'],match['price'])
     elif match:= re.fullmatch(DealBuyXGetY.regex, offer):
         return DealBuyXGetY(match['n'], match['itemx'], match['itemy'])
+
