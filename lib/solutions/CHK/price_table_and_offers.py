@@ -46,4 +46,3 @@ deals_raw = [
  "3V for 130",
  "buy any 3 of (S,T,X,Y,Z) for 45"
 ]
-

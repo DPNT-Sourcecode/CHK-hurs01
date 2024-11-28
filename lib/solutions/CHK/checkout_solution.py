@@ -31,4 +31,3 @@ def checkout(skus):
 
 
 checkout("STXYZ")
-
