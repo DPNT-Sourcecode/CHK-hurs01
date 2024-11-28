@@ -82,16 +82,13 @@ class DealGroupDiscount:
 
     # Deal always tries to use the most expensive items
     def apply_deal(self, basket):
-        count = 0
-        for i in sorted(self.items, key=lambda i: price_table[i], reverse=True):
-            if basket.get(i,0)>0:
-                basket[i]-= 1
+        for i in range(self.n):
+            for item in sorted(self.items, key=lambda i: price_table[i], reverse=True):
+                if basket.get(item) > 0:
+                    basket[item] -= 1
+                    break
 
-
-
-
-        basket[self.itemy] -= 1
-        return price_table[self.itemx] * self.n
+        return self.price
 
 
 # Generate a Deal object from the offer wording
