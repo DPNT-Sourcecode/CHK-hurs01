@@ -22,19 +22,24 @@ def checkout(skus):
     }
 
     # Count items in basket - to be optimised for larger price tables (i.e. more items)
-    skus_count = {s:skus.count(s) for s in skus}
+    basket_count = {s:skus.count(s) for s in skus}
 
     total = 0
     try:
-        for sku in skus_count:
-
-            if price_table[item].get("offer"):
-                quot = 
-                total = total + 
+        for (sku,count) in basket_count.items():
+            item = price_table[sku]
+            if item.get("offer"):
+                # Quotient is the number of times offer is applied; remainder is number of individually priced products
+                (n,y) = item.get("offer")
+                quot,rem = divmod(count,n)
+                total = total + quot*y + rem*item["price"]
+            else:
+                total = total + count*item["price"]
 
     except KeyError:
         return -1
-
+    
+    return total
 
 
 checkout("AAABBBBBCCCCD")
