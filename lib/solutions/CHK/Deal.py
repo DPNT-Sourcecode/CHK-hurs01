@@ -23,6 +23,9 @@ class DealNForY:
     def apply_deal(self, basket):
         basket[self.item] = basket[self.item]-self.n
         return self.price
+    
+    def calculate_saving(self):
+        return self.n*price_table[self.item] - self.price
 
 
 # Represents a 'buy n of item x to get item y free' deal
@@ -49,6 +52,9 @@ class DealBuyXGetY:
         basket[self.itemx]-=self.n
         basket[self.itemy]-=1
         return price_table[self.itemx]*self.n
+    
+    def calculate_saving(self):
+        return price_table["itemy"]
 
 
 # Generate a Deal object from the offer wording
@@ -61,5 +67,8 @@ def get_deal(offer):
 
 # Comparison operation to sort deals
 def compare_deals(deal1, deal2):
-    type(deal1) == DealNForY and type(deal1) == type(deal2)
-    pass
+    if type(deal1) == DealNForY and type(deal1) == type(deal2):
+        return 0
+    if type(deal1) == DealNForY and type(deal2) == DealBuyXGetY:
+        costofitem1 = deal1.price/deal1.n
+        cost
