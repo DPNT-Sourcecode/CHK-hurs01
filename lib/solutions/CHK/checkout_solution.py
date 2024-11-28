@@ -52,6 +52,7 @@ deals = [
     DealNForY(3, "A", 130)
 ]
 
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -64,7 +65,6 @@ def checkout(skus):
         while deal.can_apply_deal(basket):
             total += deal.apply(basket)
 
-    
     try:
         for item, count in basket.items:
             total += count * price_table[item]
@@ -72,4 +72,7 @@ def checkout(skus):
         return -1
     
     return total
+
+checkout("AAAAAAAAAABBBBBBBCCCDDDEE")
+
 
