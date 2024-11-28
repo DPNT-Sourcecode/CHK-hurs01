@@ -63,5 +63,3 @@ def get_deal(offer):
         return DealNForY(match['n'],match['item'],match['price'])
     elif match:= re.fullmatch(DealBuyXGetY.regex, offer):
         return DealBuyXGetY(match['n'], match['itemx'], match['itemy'])
-
-
