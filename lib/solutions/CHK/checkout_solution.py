@@ -17,8 +17,15 @@ deals = [Deal1, Deal2]
 def checkout(skus):
     # Count items in basket - to be optimised for larger price tables (i.e. more items) using Counter
     basket = {s:skus.count(s) for s in skus}
+    total = 0
 
-    # Iteratively apply deals until basket is empty
+    # Iteratively apply deals until no more apply
+    for deal in deals:
+        while deal.can_apply_deal(basket):
+            total, basket = deal.apply(basket)
+    for item, count in basket.items:
+        total += count * price_table[item]
+
 
     total = 0
     try:
@@ -36,4 +43,5 @@ def checkout(skus):
         return -1
     
     return total
+
 
