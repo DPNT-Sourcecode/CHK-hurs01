@@ -8,6 +8,23 @@ price_table = {
     "E":40,
 }
 
+# Represents a 'buy n of item x for the price of y' deal
+class DealNForY:
+    def __init__(self, n, x, y):
+        self.n = n
+        self.x = x
+        self.y = y
+    
+    def can_apply_deal(self, basket):
+        if basket[self.x]>self.n:
+            return True
+        else:
+            return False
+
+# Represents a 'buy n of item x to get item y free' deal
+class DealBuyXGetY:
+
+
 Deal1 = ""
 Deal2 = ""
 deals = [Deal1, Deal2]
@@ -31,6 +48,7 @@ def checkout(skus):
         return -1
     
     return total
+
 
 
 
