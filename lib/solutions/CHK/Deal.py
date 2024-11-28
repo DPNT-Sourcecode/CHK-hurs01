@@ -22,7 +22,7 @@ class DealNForY:
             return False
 
     def apply_deal(self, basket):
-        basket[self.item] = basket[self.item] - self.n
+        basket[self.item] -= self.n
         return self.price
 
     def calculate_saving(self):
@@ -82,7 +82,14 @@ class DealGroupDiscount:
 
     # Deal always tries to use the most expensive items
     def apply_deal(self, basket):
-        order = sorted(self.items, key=lambda i: price_table[i], reverse=True)
+        count = 0
+        for i in sorted(self.items, key=lambda i: price_table[i], reverse=True):
+            if basket.get(i,0)>0:
+                basket[i]-= 1
+
+
+
+
         basket[self.itemy] -= 1
         return price_table[self.itemx] * self.n
 
@@ -95,3 +102,4 @@ def get_deal(offer):
         return DealBuyXGetY(match["n"], match["itemx"], match["itemy"])
     elif match := re.fullmatch(DealGroupDiscount.regex, offer):
         return DealGroupDiscount(match["n"], match["items"].split(","), match["price"])
+
