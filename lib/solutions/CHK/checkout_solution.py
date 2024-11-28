@@ -74,12 +74,11 @@ def checkout(skus):
     try:
         for item, count in basket.items():
             total += count * price_table[item]
+            basket[item] = 0
     except KeyError:
         return -1
     
     return total
-
-checkout("AAAAAAAAAABBBBBBBCCCDDDEE")
 
 
 

@@ -4,8 +4,10 @@ from lib.solutions.CHK.checkout_solution import checkout
 class TestChk():
     def test_chk(self):
         assert checkout("ABCD") == 115
-    def test_chk_offers(self):
+    def test_chk_offers_A(self):
         assert checkout("AAA") == 130
+        assert checkout("AAAAA") == 200
+        assert checkout("AAAAAAA") == 300
         assert checkout("BB") == 45
     def test_chk_invalid(self):
         assert checkout("ZYX") == -1
