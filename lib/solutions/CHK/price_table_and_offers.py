@@ -41,12 +41,9 @@ deals_raw = [
  "3Q for 80",
  "3R get one Q free",
  "buy any 3 of (S,T,X,Y,Z) for 45",
- "buy any 3 of (S,T,X,Y,Z) for 45",
  "3U get one U free",
  "2V for 90",
  "3V for 130",
- "buy any 3 of (S,T,X,Y,Z) for 45",
- "buy any 3 of (S,T,X,Y,Z) for 45",
  "buy any 3 of (S,T,X,Y,Z) for 45"
 ]
 

@@ -1,5 +1,5 @@
 import re
-from price_table_and_offers import price_table
+from .price_table_and_offers import price_table
 
 
 # Represents a 'buy n of item x for the price of y' deal
