@@ -95,6 +95,3 @@ def get_deal(offer):
         return DealBuyXGetY(match["n"], match["itemx"], match["itemy"])
     elif match := re.fullmatch(DealGroupDiscount.regex, offer):
         return DealGroupDiscount(match["n"], match["items"].split(","), match["price"])
-
-
-
