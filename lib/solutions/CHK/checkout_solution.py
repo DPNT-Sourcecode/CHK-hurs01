@@ -10,19 +10,28 @@ price_table = {
 
 # Represents a 'buy n of item x for the price of y' deal
 class DealNForY:
-    def __init__(self, n, x, y):
+    def __init__(self, n, item, price):
         self.n = n
-        self.x = x
-        self.y = y
+        self.item = item
+        self.price = price
     
     def can_apply_deal(self, basket):
-        if basket[self.x]>self.n:
+        if basket[self.item]>self.n:
             return True
         else:
             return False
+        
+    def apply_deal(self, basket):
+        basket[self.item] = basket[self.item]-self.n
+        return self.price
+
 
 # Represents a 'buy n of item x to get item y free' deal
 class DealBuyXGetY:
+    def __init__(self, n, itemx, itemy):
+        self.n = n
+        self.itemx = itemx
+        self.itemy = itemy
 
 
 Deal1 = ""
@@ -39,7 +48,8 @@ def checkout(skus):
     # Iteratively apply deals until no more apply
     for deal in deals:
         while deal.can_apply_deal(basket):
-            total, basket = deal.apply(basket)
+            total += deal.apply(basket)
+
     
     try:
         for item, count in basket.items:
@@ -48,6 +58,7 @@ def checkout(skus):
         return -1
     
     return total
+
 
 
 
