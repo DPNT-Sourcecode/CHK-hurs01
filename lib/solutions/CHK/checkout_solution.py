@@ -24,4 +24,6 @@ def checkout(skus):
     # Count items in basket - to be optimised for larger price tables (i.e. more items)
     total_items = {s:skus.count(s) for s in skus}
 
+    
+
 
