@@ -10,9 +10,19 @@ def checkout(skus):
             "offer": (3,130)
         },
         "B": {
-            "price": ""
+            "price": 30,
+            "offer": (2,45)
+        },
+        "C": {
+            "price":20
+        },
+        "D": {
+            "price":15
         }
     }
-    items = list(skus)
+
+    basket = {}
+    try:
+        for s in list(skus):
 
 
