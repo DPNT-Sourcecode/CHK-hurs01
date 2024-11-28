@@ -22,12 +22,15 @@ def checkout(skus):
     }
 
     # Count items in basket - to be optimised for larger price tables (i.e. more items)
-    total_items = {s:skus.count(s) for s in skus}
+    skus_count = {s:skus.count(s) for s in skus}
 
     total = 0
     try:
-        for item in total_items:
-            pass
+        for sku in skus_count:
+
+            if price_table[item].get("offer"):
+                quot = 
+                total = total + 
 
     except KeyError:
         return -1
