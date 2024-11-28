@@ -68,11 +68,19 @@ class DealGroupDiscount:
 
     def __init__(self, n, items, price):
         self.n = int(n)
-        self.itemx = items
-        self.itemy = int(price)
+        self.items = items
+        self.price = int(price)
 
     def __repr__(self):
         return f"buy any {self.n} of {self.items} for {self.price}"
+    
+    def can_apply_deal(self, basket):
+        if sum([basket[i] for i in self.items])>=self.n
+            
+            return True
+        else:
+            return False
+
 
 
 
@@ -84,4 +92,5 @@ def get_deal(offer):
         return DealBuyXGetY(match["n"], match["itemx"], match["itemy"])
     elif match := re.fullmatch(DealGroupDiscount.regex, offer):
         return DealGroupDiscount(match["n"], match["items"].split(","), match["price"])
+
 
