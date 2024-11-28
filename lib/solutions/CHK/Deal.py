@@ -49,12 +49,14 @@ class DealBuyXGetY:
         basket[self.itemx]-=self.n
         basket[self.itemy]-=1
         return price_table[self.itemx]*self.n
-   
-    
+
+
 # Generate a Deal object from the offer wording
 def get_deal(offer):
     if match := re.fullmatch(DealNForY.regex, offer):
         return DealNForY(match['n'],match['item'],match['price'])
     elif match:= re.fullmatch(DealBuyXGetY.regex, offer):
         return DealBuyXGetY(match['n'], match['itemx'], match['itemy'])
+
+
     
