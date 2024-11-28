@@ -56,6 +56,11 @@ class DealBuyXGetY:
     def calculate_saving(self):
         return price_table[self.itemy]
 
+# Represents a 'buy any n of [items] for y' deal
+class DealGroupDiscount:
+
+    regex = r'buy any (?P<n>\d+) of \((?P<items>\w (?:,\w)*)\) for (?P<y>\d+)'
+
 
 # Generate a Deal object from the offer wording
 def get_deal(offer):
